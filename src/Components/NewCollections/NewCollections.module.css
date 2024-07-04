@@ -22,3 +22,56 @@
    margin-top: 50px;
    gap: 30px;
 }
+
+
+
+@media(max-width:1280px){
+
+    .newCollection h1{
+        font-size: 40px;
+    }
+}
+
+@media(max-width:1024px){
+
+   
+    .newCollection h1{
+        font-size: 30px;
+    }
+    .newCollection hr{
+        width: 250px;
+        height: 5px;
+    }
+    .collections{
+        margin-top: 40px;
+        gap: 20px;
+    }
+}
+
+@media(max-width:800px){
+
+    .newCollection{
+        gap:6px
+    }
+    .newCollection h1{
+        font-size: 20px;
+    }
+    .newCollection hr{
+        width: 200px;
+        height: 3px;
+    }
+    .collections{
+        margin-top: 30px;
+        gap: 10px;
+    }
+}
+
+@media(max-width:500px){
+
+   
+    .collections{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap:20px
+    }
+}

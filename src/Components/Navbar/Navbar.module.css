@@ -1,9 +1,8 @@
 .navbar{
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
     box-shadow: 0 1px 3px -2px black;
+    padding: 1rem 2rem;
 }
 .nav-logo{
     display: flex;
@@ -12,7 +11,7 @@
 }
 .nav-logo p{
     color: #171717;
-    font-size: 30px;
+    font-size: 1.5rem;
     font-weight: 600;
 }
 .nav-menu{
@@ -47,12 +46,12 @@
 
 }
 .nav-login-cart button{
-    width: 157px;
-    height: 58px;
+    width: 5rem;
+    height: 3rem;
     outline: none;
     border: 1px solid #7a7a7a;
-    border-radius: 75px;
-    color: #515151;
+    border-radius: 1rem;
+    color: #000;
     font-size: 20px;
     font-weight: 500;
     background-color: white;
@@ -73,4 +72,68 @@
     margin-top: -35px;
     color: white;
     font-size: 14px;
+}
+.navBarBtn{
+padding: 10px;
+cursor: pointer;
+background:transparent;
+border: none;
+outline: none;
+display: none;
+font-size: 2rem;
+
+}
+
+.rightBar{
+    display: flex;
+    gap:20px
+}
+
+
+@media (max-width:900px) {
+  
+    .nav-logo{
+        transform: scale(0.8);
+    }
+    .nav-menu{
+        font-size: 18px;
+    }
+    .nav-login-cart button{
+        width: 4rem;
+        height: 3rem;
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width:800px) {
+    .nav-menu{
+        position: fixed;
+        top: -100vh;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #eac5ed;
+        flex-direction: column;
+     transition: 1s;
+     font-size: 2rem;
+     
+    }
+    .navBarBtn{
+     display: block;
+    }
+    .nav-login-cart{
+        gap:20px
+    }
+  .responsiveNav{
+    transform: translateY(100vh);
+       }
+       .navBarClose{
+        position: absolute;
+		top: 2rem;
+		right: 2rem;
+       }
+       
 }

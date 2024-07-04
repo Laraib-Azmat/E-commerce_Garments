@@ -15,6 +15,11 @@ import womenBanner from './Assets/banner_women.png';
 import kidBanner from './Assets/banner_kids.png';
 
 function App() {
+
+
+  //font
+  //animation
+
   return (
     <BrowserRouter>
     <Navbar/>
