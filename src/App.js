@@ -30,10 +30,15 @@ function App() {
      const handleScroll = () => {
       if (window.scrollY < lastScrollY) {
           setShowButton(false);
-        } else {
+          lastScrollY = window.scrollY;
+        } 
+        else if(window.scrollY<10){
+          setShowButton(false)
+        }        
+        else {
           setShowButton(true);
         }
-        lastScrollY = window.scrollY;
+        
   };
 
   useEffect(() => {
