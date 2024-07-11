@@ -166,4 +166,16 @@ font-size: 2rem;
     .nav-logo img{
         display: none;
     }
+    .navbar{
+        padding: 1rem 0rem;
+    }
+}
+
+@media(max-width:350px){
+    .navbar{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
 }
