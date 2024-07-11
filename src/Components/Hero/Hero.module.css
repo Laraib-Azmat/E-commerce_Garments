@@ -44,6 +44,9 @@
     color: white;
     font-size: 22px;
     font-weight: 500;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
 .hero-right{
     flex: 1;
@@ -54,8 +57,17 @@
 }
 .hero-right img{
     width: 90%;
+    height: 90%;
 }
-
+.backRing{
+    width: 30%;
+    height: 60%;
+    border: 0.6rem solid #ff4141;
+    position: absolute;
+    z-index: -10;
+    border-radius: 60%;
+ 
+}
 
 @media(max-width:1280px){
     .hero-left{
@@ -79,7 +91,9 @@
     }
     .hero-right img{
         width: 500px;
+        height: auto;
     }
+  
 }
 
 @media(max-width:1024px){
@@ -103,6 +117,11 @@
     .hero-right img{
         width: 400px;
     }
+    .backRing{
+        width: 30%;
+        height: 40%;
+     
+    }
 }
 
 @media(max-width:800px){
@@ -125,6 +144,9 @@
     }
     .hero-right img{
         width: 300px;
+    }
+    .backRing{
+       display: none;
     }
 }
 

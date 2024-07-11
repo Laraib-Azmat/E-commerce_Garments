@@ -34,11 +34,12 @@
     margin: 150px auto;
     width: 233px;
     height: 69px;
-    background: #ededed;
-    color: #787878;
+    background: #ca7979;
+    color: #fbfbfb;
     font-size: 18px;
     font-weight: 500;
     border-radius: 75px;
+    cursor: pointer;
 }
 
 @media(max-width:730px){

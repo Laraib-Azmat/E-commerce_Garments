@@ -1,20 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './LoginSignup.module.css'
+import { Link } from 'react-router-dom'
 
 export const LoginSignup = () => {
+
+  const [state , setState] = useState("Login")
+
   return (
     <div className={styles.loginsignup}>
       <div className={styles['loginsignup-container']}>
-        <h1>Sign Up</h1>
+        <h1>{state}</h1>
         <div className={styles['loginsignup-fields']}>
-          <input type='text' placeholder='Your Name'/>
+         {state==='Sign Up' &&  <input type='text' placeholder='Your Name'/>}
           <input type='email' placeholder='Email Address'/>
           <input type='password' placeholder='Password'/>
         </div>
         <button>Continue</button>
+        {state==='Login'?
         <p className={styles['loginsignup-login']}>
-          Already Have an account? <span>Login here</span>
+        Don't have an account? <span style={{cursor:'pointer'}} onClick={()=>setState("Sign Up")}>Click here</span>
+      </p>
+      :
+      <p className={styles['loginsignup-login']}>
+          Already Have an account? <span style={{cursor:'pointer'}} onClick={()=>setState("Login")}>Login here</span>
         </p>
+      }
         <div className={styles['loginsignup-agree']}>
           <input type='checkbox' name='' id=''/>
           <p>By continuing, i agree to the terms of use & privacy policy.</p>

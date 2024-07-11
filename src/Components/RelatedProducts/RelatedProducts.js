@@ -2,11 +2,18 @@ import React from 'react'
 import styles from './RelatedProducts.module.css'
 import data_product from '../../Assets/data'
 import { Item } from '../Item/Item'
+import { motion } from 'framer-motion'
 
 export const RelatedProducts = () => {
   return (
     <div className={styles.RelatedProducts}>
-        <h1>Related Products</h1>
+        <motion.h1
+         initial={{ opacity: 0, y: 50 }}
+         whileInView={{opacity:1,y:0}}
+         transition={
+           {type:'spring', delay:0.2, damping:10, stiffness:100}
+          }
+        >Related Products</motion.h1>
         <hr />
         <div className={styles['relatedProducts-item']}>
             {data_product.map((item, i)=>{

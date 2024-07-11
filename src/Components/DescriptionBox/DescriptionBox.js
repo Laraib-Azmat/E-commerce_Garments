@@ -1,9 +1,16 @@
 import React from 'react'
 import styles from './DescriptionBox.module.css'
+import { motion } from 'framer-motion'
 
 export const DescriptionBox = () => {
   return (
-    <div className={styles.DescriptionBox}>
+    <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{opacity:1,y:0}}
+    transition={
+      {type:'spring', delay:0.2, damping:10, stiffness:100}
+     }
+    className={styles.DescriptionBox}>
             <div className={styles['descriptionbix-navigator']}>
                 <div className={styles['descriptionbox-nav-box']}>Description</div>
                 <div className={styles['fade']}>Reviews (122)</div>
@@ -14,6 +21,6 @@ export const DescriptionBox = () => {
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi sed pariatur, nisi quis, sapiente aspernatur ea repudiandae magni, cum voluptas inventore. Itaque commodi fuga enim reprehenderit tempora. Nesciunt, nulla similique!
             </p>
             </div>   
-    </div>
+    </motion.div>
   )
 }

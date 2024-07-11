@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import styles from './Navbar.module.css';
 import logo from '../../Assets/logo.png';
 import cartIcon from '../../Assets/cart_icon.png';
@@ -6,19 +6,41 @@ import { Link } from 'react-router-dom';
 import { ShopContext } from '../Context/ShopContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark , faBars} from '@fortawesome/free-solid-svg-icons'
+import { motion } from 'framer-motion';
 
 export const Navbar = () => {
 
    const [menu, setMenu]=useState('shop');
    const {getTotalCartItems} = useContext(ShopContext);
+   const [isHighlight, setHighlight] = useState(false);
    const menuRef = useRef();
 
    const showNavBar = ()=>{
     menuRef.current.classList.toggle(styles.responsiveNav)
    }
 
+   useEffect(()=>{
+  if(getTotalCartItems()===0){
+    return;
+  }
+
+  setHighlight(true);
+
+  const timer = setTimeout(() => {
+    setHighlight(false);
+  }, 300);
+
+  return () => {
+    clearTimeout(timer);
+  }
+   },[getTotalCartItems()])
+
   return (
-    <div className={styles.navbar}>
+    <motion.div
+           initial={ {opacity:0, x:-100}} 
+           animate={ {opacity:1, x:0}}
+           transition={{type:'spring', stiffness:100,damping:10,delay:0.4}}
+    className={styles.navbar}>
 
 <div className={styles['nav-logo']}>
     <img src={logo} alt="logo" />
@@ -37,13 +59,13 @@ export const Navbar = () => {
 <div className={styles.rightBar}>
 <div className={styles['nav-login-cart']}>
 <Link to='/login'><button>Login</button></Link>
-<Link to='/cart'><img src={cartIcon} alt="cart-icon" /></Link>
-<div className={styles['nav-cart-count']}>{getTotalCartItems()}</div>
+<Link to='/cart'><img className={isHighlight?styles.bump:""} src={cartIcon} alt="cart-icon" /></Link>
+<div className={`${styles['nav-cart-count']} ${isHighlight?styles.bump:""}`}>{getTotalCartItems()}</div>
 
 </div>
  <button className={styles.navBarBtn} onClick={showNavBar}><FontAwesomeIcon icon={faBars} /></button>
 
 </div>
-    </div>
+    </motion.div>
   )
 }
